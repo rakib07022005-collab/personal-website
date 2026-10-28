@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SADMAN SHAKIB</title>
+<meta name="description" content="Personal website of Sadman Shakib, an electrician from Bangladesh based in Saudi Arabia.">
+<style>
+:root{--bg:#faf8f4;--fg:#1d1b18;--mut:#6f6a62;--line:#e4dfd6;--card:#fff;--acc:#b4532a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root{--bg:#141311;--fg:#f1ede6;--mut:#a29c91;--line:#2d2a25;--card:#1c1a17;--acc:#e08a5f}}
+html{scroll-behavior:smooth}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Georgia,"Times New Roman",serif}
+.wrap{max-width:720px;margin:0 auto;padding:0 22px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--line);font-family:system-ui,sans-serif;font-size:clamp(13px,3.8vw,15px)}
+nav>div{white-space:nowrap;flex:none}
+nav b{font-family:Georgia,serif;font-size:clamp(15px,4.8vw,19px);white-space:nowrap}
+nav a{color:var(--mut);text-decoration:none;margin-left:clamp(10px,3.4vw,18px)}
+nav a:hover{color:var(--acc)}
+.dd{position:relative;display:inline-block}.dd>a{margin-left:clamp(10px,3.4vw,18px)}
+.ddm{position:absolute;right:0;top:32px;z-index:20;background:var(--card);border:1px solid var(--line);border-radius:12px;min-width:170px;padding:6px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.ddm[hidden],.lb[hidden],.lbmenu[hidden]{display:none}
+.ddm a{display:block;margin:0;padding:10px 12px;border-radius:8px;color:var(--fg);font-size:15px;white-space:nowrap}
+.ddm a:hover{background:var(--line)}
+.hero{padding:24px 0 48px}
+.cover{display:block;width:100%;height:clamp(180px,34vw,260px);object-fit:cover;object-position:65% 15%;border-radius:16px}
+.avatar{display:block;position:relative;width:140px;height:140px;border-radius:50%;object-fit:cover;margin:-70px 0 22px 22px;border:4px solid var(--bg)}
+.zoom{cursor:zoom-in}
+.hero h1{font-size:clamp(34px,8vw,52px);line-height:1.15;margin:0 0 14px;font-weight:600}
+.hero p{color:var(--mut);margin:0;max-width:34em}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:30px 16px;text-align:center;padding:4px 0 44px;border-bottom:1px solid var(--line);margin-bottom:36px}
+.num{font:700 clamp(38px,11vw,54px)/1.1 Georgia,serif;color:var(--acc)}
+.cap{font:15px system-ui,sans-serif;color:var(--mut);margin-top:6px}
+h2{font:600 13px/1 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin:0 0 18px}
+section{padding:36px 0}
+.post{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:26px}
+.post>img,.post .body img{display:block;width:100%;height:auto;max-height:78vh;object-fit:contain;background:var(--line)}
+.body{padding:18px 20px 22px}
+.meta{font:13px system-ui,sans-serif;color:var(--mut);display:flex;gap:10px;margin-bottom:6px}
+.meta span:first-child{color:var(--acc);font-weight:600}
+.post h3{margin:0 0 6px;font-size:22px}.post p,.post li{color:var(--mut)}
+.empty{color:var(--mut);font:15px system-ui,sans-serif}
+.links{display:flex;flex-direction:column;gap:10px;font:16px system-ui,sans-serif;margin-top:6px}
+.links a{display:flex;align-items:center;gap:12px;color:var(--acc);text-decoration:none;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--card);word-break:break-all}
+.links svg{width:26px;height:26px;flex:none}
+footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--mut);font:14px system-ui,sans-serif}
+.hide{display:none}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.93);display:flex;align-items:center;justify-content:center;padding:calc(70px + env(safe-area-inset-top,0px)) 12px 16px}
+.lb>img{max-width:100%;max-height:100%;object-fit:contain}
+.lbbar{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:flex-start;padding:calc(10px + env(safe-area-inset-top,0px)) 12px 10px}
+.rb{width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;font:22px/1 system-ui,sans-serif;cursor:pointer}
+.lbm{position:relative}
+.lbmenu{position:absolute;right:0;top:52px;background:#fff;border-radius:12px;min-width:150px;box-shadow:0 8px 28px rgba(0,0,0,.4);overflow:hidden}
+.lbmenu a{display:block;padding:14px 18px;font:16px system-ui,sans-serif;color:#111;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><b>SADMAN SHAKIB</b><div><span class="dd"><a href="#posts" id="ddb">Posts ▾</a><div class="ddm" id="ddm" hidden></div></span><a href="#about">About</a><a href="#contact">Contact</a></div></nav>
+<header class="hero">
+<img class="cover zoom" src="/uploads/cover.jpg" alt="Sadman Shakib sitting in the open door of a white car">
+<img class="avatar zoom" src="/uploads/avatar.jpg" alt="Portrait of Sadman Shakib">
+<h1>Hello, I’m Sadman Shakib.</h1>
+<p>Electrician from Bangladesh, based in Saudi Arabia. Welcome to my personal website.</p>
+</header>
+<section class="stats" id="stats" aria-label="Highlights"></section>
+<section id="posts" class="hide" style="padding-top:0"><div id="plist"></div><p class="empty hide" id="empty">No posts in this category yet. Check back soon.</p></section>
+<section id="about" style="border-top:1px solid var(--line)">
+<h2>About</h2>
+<p>I’m Sadman Shakib, an electrician from Bangladesh, currently working in Saudi Arabia. Since August 2025 I have been working at Adwaa Al-Manzil Establishment for Plumbing and Electricity, a home maintenance company offering plumbing, electrical work and AC cleaning. Outside of work I enjoy capturing everyday moments through a camera, and this site is where I keep my photos.</p>
+</section>
+<section id="contact" style="border-top:1px solid var(--line)">
+<h2>Contact</h2>
+<p>Feel free to get in touch with me:</p>
+<div class="links">
+<a href="https://www.facebook.com/share/1CJaXXwki6/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1877F2"/><path fill="#fff" d="M13.4 20v-6.9h2.3l.4-2.7h-2.7V8.7c0-.8.2-1.3 1.3-1.3h1.5V5c-.3 0-1.1-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.6v2H8.2v2.7h2.4V20z"/></svg><span>Facebook Page</span></a>
+<a href="https://wa.me/966555392675" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#25D366"/><path d="M12 5.2a6.8 6.8 0 0 0-5.8 10.3L5.2 18.8l3.4-1A6.8 6.8 0 1 0 12 5.2z" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><path fill="#fff" d="M9.3 8.6c.2-.4.5-.4.7-.4h.3c.1 0 .3 0 .4.3l.6 1.4c.1.2 0 .4-.1.5l-.4.5c-.1.1-.1.3 0 .4.5.9 1.3 1.6 2.2 2 .2.1.3 0 .4-.1l.5-.6c.1-.2.3-.2.5-.1l1.4.7c.2.1.3.2.2.5-.1.7-.7 1.3-1.5 1.3-1.9 0-4.6-2.3-5.2-4.1-.2-.6.1-1.4.4-1.7z"/></svg><span>WhatsApp: +966 55 539 2675</span></a>
+<a href="mailto:sadmanshakib5830@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4.5" width="20" height="15" rx="2.5" fill="#fff" stroke="#d9d9d9"/><path d="M4 18V7.5" stroke="#4285F4" stroke-width="2.2" stroke-linecap="round" fill="none"/><path d="M20 18V7.5" stroke="#34A853" stroke-width="2.2" stroke-linecap="round" fill="none"/><path d="M4 7.5l8 6 8-6" stroke="#EA4335" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><span>sadmanshakib5830@gmail.com</span></a>
+</div>
+</section>
+<footer>© 2026 SADMAN SHAKIB · All photographs are taken by me.</footer>
+</div>
+<div class="lb" id="lb" hidden>
+<div class="lbbar"><button class="rb" id="lbx" type="button" aria-label="Close">✕</button><div class="lbm"><button class="rb" id="lbd" type="button" aria-label="More options">⋯</button><div class="lbmenu" id="lbmenu" hidden><a id="lbdl" href="#" download>Download</a></div></div></div>
+<img id="lbimg" alt="">
+</div>
+<script>
+(function(){
+function $(i){return document.getElementById(i);}
+function e(s){return String(s||'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function fd(s){var t=new Date(s);return isNaN(t)?'':t.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});}
+var lb=$('lb'),li=$('lbimg'),lm=$('lbmenu'),dl=$('lbdl'),dm=$('ddm'),D={posts:[],categories:[],stats:[]};
+function closeLb(){lb.hidden=true;lm.hidden=true;li.removeAttribute('src');document.body.style.overflow='';}
+document.addEventListener('click',function(ev){var t=ev.target;
+if(t.id==='ddb'){ev.preventDefault();dm.hidden=!dm.hidden;}else if(!dm.contains(t)){dm.hidden=true;}
+if(t.tagName==='IMG'&&t.classList.contains('zoom')){li.src=t.src;dl.href=t.src;dl.setAttribute('download',decodeURIComponent(t.src.split('/').pop().split('?')[0])||'photo.jpg');lm.hidden=true;lb.hidden=false;document.body.style.overflow='hidden';}
+else if(!lb.hidden){if(t===lb||t.id==='lbx')closeLb();else if(t.id==='lbd')lm.hidden=!lm.hidden;else if(!lm.contains(t))lm.hidden=true;}});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&!lb.hidden)closeLb();});
+function card(p){var d=document.createElement('article');d.className='post';
+d.innerHTML=(p.image?'<img class="zoom" src="'+e(p.image)+'" alt="'+e(p.title)+'">':'')+'<div class="body"><div class="meta"><span>'+e(p.category)+'</span><span>'+fd(p.date)+'</span></div><h3>'+e(p.title)+'</h3>'+(p.body||'')+'</div>';return d;}
+function show(c){var l=$('plist'),n=0;l.innerHTML='';D.posts.forEach(function(p){if(c==='all'||p.category===c){l.appendChild(card(p));n++;}});
+$('empty').classList.toggle('hide',n>0);var s=$('posts');s.classList.remove('hide');s.scrollIntoView({behavior:'smooth'});}
+function menu(){['all'].concat(D.categories).forEach(function(c){var a=document.createElement('a');a.href='#posts';a.textContent=c==='all'?'All posts':c;a.onclick=function(ev){ev.preventDefault();dm.hidden=true;show(c);};dm.appendChild(a);});}
+function fmt(el,v){el.textContent=(el.dataset.pre||'')+Math.round(v).toLocaleString('en-US')+(el.dataset.suf||'');}
+function run(el){var t=+el.dataset.to,s=null;function step(ts){if(s===null)s=ts;var p=Math.min((ts-s)/1400,1);fmt(el,t*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
+function stats(){var box=$('stats');D.stats.forEach(function(x){var d=document.createElement('div');d.innerHTML='<div class="num" data-to="'+(+x.value||0)+'" data-pre="'+e(x.prefix)+'" data-suf="'+e(x.suffix)+'"></div><div class="cap">'+e(x.label)+'</div>';box.appendChild(d);});
+var els=box.querySelectorAll('.num'),anim='IntersectionObserver' in window&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+var io=anim?new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){run(en.target);io.unobserve(en.target);}});},{threshold:.4}):null;
+els.forEach(function(el){if(io){fmt(el,0);io.observe(el);}else fmt(el,+el.dataset.to);});}
+fetch('/posts.json').then(function(r){return r.json();}).then(function(d){D=d;menu();stats();}).catch(function(){});
+})();
+</script>
+</body>
+</html>
