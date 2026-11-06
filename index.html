@@ -27,7 +27,7 @@ nav a:hover{color:var(--acc)}
 .zoom{cursor:zoom-in}
 .hero h1{font-size:clamp(34px,8vw,52px);line-height:1.15;margin:0 0 14px;font-weight:600}
 .hero p{color:var(--mut);margin:0;max-width:34em}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:30px 16px;text-align:center;padding:4px 0 44px;border-bottom:1px solid var(--line);margin-bottom:36px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:30px 16px;text-align:center;padding:40px 0 44px;border-top:1px solid var(--line)}
 .num{font:700 clamp(38px,11vw,54px)/1.1 Georgia,serif;color:var(--acc)}
 .cap{font:15px system-ui,sans-serif;color:var(--mut);margin-top:6px}
 h2{font:600 13px/1 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin:0 0 18px}
@@ -43,6 +43,9 @@ section{padding:36px 0}
 .links a{display:flex;align-items:center;gap:12px;color:var(--acc);text-decoration:none;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--card);word-break:break-all}
 .links svg{width:26px;height:26px;flex:none}
 footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--mut);font:14px system-ui,sans-serif}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;font-family:system-ui,sans-serif}
+.tabs button{border:1px solid var(--line);background:none;color:var(--fg);padding:7px 15px;border-radius:99px;font:inherit;font-size:14px;cursor:pointer}
+.tabs button.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .hide{display:none}
 .lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.93);display:flex;align-items:center;justify-content:center;padding:calc(70px + env(safe-area-inset-top,0px)) 12px 16px}
 .lb>img{max-width:100%;max-height:100%;object-fit:contain}
@@ -62,8 +65,8 @@ footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--mut);fon
 <h1>Hello, I’m Sadman Shakib.</h1>
 <p>Electrician from Bangladesh, based in Saudi Arabia. Welcome to my personal website.</p>
 </header>
+<section id="posts" style="padding-top:0"><h2>Posts</h2><div class="tabs" id="tabs"></div><div id="plist"></div><p class="empty hide" id="empty">No posts in this category yet. Check back soon.</p></section>
 <section class="stats" id="stats" aria-label="Highlights"></section>
-<section id="posts" class="hide" style="padding-top:0"><div id="plist"></div><p class="empty hide" id="empty">No posts in this category yet. Check back soon.</p></section>
 <section id="about" style="border-top:1px solid var(--line)">
 <h2>About</h2>
 <p>I’m Sadman Shakib, an electrician from Bangladesh, currently working in Saudi Arabia. Since August 2025 I have been working at Adwaa Al-Manzil Establishment for Plumbing and Electricity, a home maintenance company offering plumbing, electrical work and AC cleaning. Outside of work I enjoy capturing everyday moments through a camera, and this site is where I keep my photos.</p>
@@ -97,16 +100,18 @@ else if(!lb.hidden){if(t===lb||t.id==='lbx')closeLb();else if(t.id==='lbd')lm.hi
 document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&!lb.hidden)closeLb();});
 function card(p){var d=document.createElement('article');d.className='post';
 d.innerHTML=(p.image?'<img class="zoom" src="'+e(p.image)+'" alt="'+e(p.title)+'">':'')+'<div class="body"><div class="meta"><span>'+e(p.category)+'</span><span>'+fd(p.date)+'</span></div><h3>'+e(p.title)+'</h3>'+(p.body||'')+'</div>';return d;}
-function show(c){var l=$('plist'),n=0;l.innerHTML='';D.posts.forEach(function(p){if(c==='all'||p.category===c){l.appendChild(card(p));n++;}});
-$('empty').classList.toggle('hide',n>0);var s=$('posts');s.classList.remove('hide');s.scrollIntoView({behavior:'smooth'});}
-function menu(){['all'].concat(D.categories).forEach(function(c){var a=document.createElement('a');a.href='#posts';a.textContent=c==='all'?'All posts':c;a.onclick=function(ev){ev.preventDefault();dm.hidden=true;show(c);};dm.appendChild(a);});}
+function tabsOn(c){document.querySelectorAll('#tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.c===c);});}
+function tabs(){var t=$('tabs');['all'].concat(D.categories).forEach(function(c){var b=document.createElement('button');b.type='button';b.dataset.c=c;b.textContent=c==='all'?'All':c;b.onclick=function(){show(c,false);};t.appendChild(b);});}
+function show(c,go){var l=$('plist'),n=0;l.innerHTML='';D.posts.forEach(function(p){if(c==='all'||p.category===c){l.appendChild(card(p));n++;}});
+$('empty').classList.toggle('hide',n>0);tabsOn(c);if(go)$('posts').scrollIntoView({behavior:'smooth'});}
+function menu(){['all'].concat(D.categories).forEach(function(c){var a=document.createElement('a');a.href='#posts';a.textContent=c==='all'?'All posts':c;a.onclick=function(ev){ev.preventDefault();dm.hidden=true;show(c,true);};dm.appendChild(a);});}
 function fmt(el,v){el.textContent=(el.dataset.pre||'')+Math.round(v).toLocaleString('en-US')+(el.dataset.suf||'');}
 function run(el){var t=+el.dataset.to,s=null;function step(ts){if(s===null)s=ts;var p=Math.min((ts-s)/1400,1);fmt(el,t*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
 function stats(){var box=$('stats');D.stats.forEach(function(x){var d=document.createElement('div');d.innerHTML='<div class="num" data-to="'+(+x.value||0)+'" data-pre="'+e(x.prefix)+'" data-suf="'+e(x.suffix)+'"></div><div class="cap">'+e(x.label)+'</div>';box.appendChild(d);});
 var els=box.querySelectorAll('.num'),anim='IntersectionObserver' in window&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
 var io=anim?new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){run(en.target);io.unobserve(en.target);}});},{threshold:.4}):null;
 els.forEach(function(el){if(io){fmt(el,0);io.observe(el);}else fmt(el,+el.dataset.to);});}
-fetch('/posts.json').then(function(r){return r.json();}).then(function(d){D=d;menu();stats();}).catch(function(){});
+fetch('/posts.json').then(function(r){return r.json();}).then(function(d){D=d;menu();tabs();show('all',false);stats();}).catch(function(){});
 })();
 </script>
 </body>
