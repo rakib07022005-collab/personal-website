@@ -1,1 +1,19 @@
-{"categories":[{"name":"Stories"},{"name":"Photography"},{"name":"Life Stories"},{"name":"Other"}]}
+{
+  "categories": [
+    {
+      "name": "Stories"
+    },
+    {
+      "name": "Photography"
+    },
+    {
+      "name": "Life Stories"
+    },
+    {
+      "name": "Other"
+    },
+    {
+      "name": "Electricity 🔌"
+    }
+  ]
+}
