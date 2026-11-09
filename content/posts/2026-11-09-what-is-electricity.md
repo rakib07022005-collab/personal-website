@@ -2,7 +2,7 @@
 title: What is Electricity
 date: 2026-11-09T23:09:00
 category: Other
-image: /uploads/4e5bf631-4ea5-4f70-9132-28b885b90628-1_all_1493.jpg
+image: /uploads/1000008703.png
 ---
 
 ইলেক্ট্রিসিটি কী? (What is Electricity?)
