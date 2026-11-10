@@ -1,7 +1,7 @@
 ---
 title: What is Electricity
 date: 2026-11-09T23:09:00
-category: Other
+category: Electricity 🔌
 image: /uploads/1000008703.png
 ---
 
