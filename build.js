@@ -3,7 +3,8 @@ fs.rmSync(out,{recursive:true,force:true});
 function cp(f,to){const t=path.join(out,to);fs.mkdirSync(path.dirname(t),{recursive:true});fs.copyFileSync(f,t);}
 cp('index.html','index.html');cp('admin.html','admin/index.html');cp('config.yml','admin/config.yml');
 for(const f of fs.readdirSync('.'))if(/\.(jpe?g|png|webp|gif)$/i.test(f))cp(f,'uploads/'+f);
-if(fs.existsSync('uploads'))for(const f of fs.readdirSync('uploads'))cp('uploads/'+f,'uploads/'+f);
+function copyDir(src){if(!fs.existsSync(src))return;for(const e of fs.readdirSync(src,{withFileTypes:true})){const s=path.join(src,e.name);if(e.isDirectory())copyDir(s);else if(e.name!=='.gitkeep')cp(s,s);}}
+copyDir('uploads');
 const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const inl=s=>s.replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g,'<img class="zoom" src="$2" alt="$1">').replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\*([^*]+)\*/g,'<em>$1</em>');
 const md=s=>esc(s).split(/\n{2,}/).map(b=>{b=b.trim();if(!b)return'';const m=/^(#{1,3})\s+(.*)$/.exec(b);if(m){const n=m[1].length+2;return`<h${n}>${inl(m[2])}</h${n}>`}
