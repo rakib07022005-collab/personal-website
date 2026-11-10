@@ -244,4 +244,4 @@ AC সার্কিটে ইলেকট্রন সাধারণত এ�
 
 Learn Today, Become Better Tomorrow. ⚡
 
-পরবর্তী পাঠ: Proton ও Neutron কী? পরমাণুর গঠনে তাদের ভূমিকা কী?
+পরবর্তী পাঠ: Proton ও Neutron কী? পরমাণুর গঠনে তাদের ভূমিকা কী?,,
