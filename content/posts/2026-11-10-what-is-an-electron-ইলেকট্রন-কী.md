@@ -2,7 +2,7 @@
 title: (What is an Electron?) ইলেকট্রন কী?
 date: 2026-11-10T22:23:00
 category: Electricity 🔌
-image: /uploads/1/1000008856.jpg
+image: /uploads/1/1000008857.png
 ---
 
 বিদ্যুৎ প্রবাহ তৈরিতে ইলেকট্রনের ভূমিকা | Understanding the Electron
