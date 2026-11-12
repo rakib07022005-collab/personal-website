@@ -14,9 +14,14 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: Title, name: title, widget: string}
-      - {label: Date, name: date, widget: datetime}
+      - {label: Published on (future date = scheduled), name: date, widget: datetime}
       - {label: Category, name: category, widget: relation, collection: settings, file: categories, search_fields: ["categories.*.name"], value_field: "categories.*.name", display_fields: ["categories.*.name"]}
+      - {label: Labels, name: labels, widget: list, required: false, hint: "Short tags like electric, safety. Shown under the title."}
       - {label: Photo, name: image, widget: image, required: false}
+      - {label: Video link (YouTube), name: video, widget: string, required: false}
+      - {label: Location, name: location, widget: string, required: false}
+      - {label: Permalink (custom page name), name: permalink, widget: string, required: false, hint: "Optional. Letters, numbers and dashes only, e.g. what-is-electricity"}
+      - {label: Draft (hide from website), name: draft, widget: boolean, default: false, required: false}
       - {label: Text, name: body, widget: markdown, required: false}
   - name: settings
     label: Site settings
